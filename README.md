@@ -9,6 +9,7 @@ This module provides a rudimentary screen-scraping "API" for VERNet service info
 You may use this module to access information about your VERNet services including
 live data from end points.
 
+```perl
 	use WWW::VERNet;
 
         # Create a new WWW::VERNet object using our customer credentials.
@@ -42,7 +43,7 @@ live data from end points.
         # to the live data we are interested in.
         print "MYORG01234567M endpoint A001 Rx power is "
                 . $v->service( 'MYORG01234567M' )->live_data->endpoint( 'A001' )->receive_power;
-	
+```	
 
 ## METHODS
 
