@@ -9,6 +9,7 @@ This module provides a rudimentary screen-scraping "API" for VERNet service info
 You may use this module to access information about your VERNet services including
 live data from end points.
 
+```perl
 	use WWW::VERNet;
 
         # Create a new WWW::VERNet object using our customer credentials.
@@ -63,6 +64,8 @@ live data from end points.
 
 	create_service_alert( 'VERNet service MYORG01234567M link state degraded' )
 		unless ( $v->service( 'MYORG01234567M' )->live_data->endpoint( 'A001' )->link_ok );
+
+```
 
 ## METHODS
 
