@@ -186,11 +186,30 @@ live data from end points.
                 }   
         }
 
+	# e.g. print something like:
+	#
+	# Service MYORG01234567M (CBD Campus to Remote Campus)
+	# - Endpoint A001
+	#	Link OK: Yes
+	#	Receive power: -5.67 dBm
+	#	Transmitting: -5.67 dBm
+	#
+	# - Endpoint A002
+	#	Link OK: Yes
+	#	Receive power: -8.096 dBm
+	#	Transmitting: -8.096 dBm
+	#
+	# ...
+
+
         # If we know our service and endpoint IDs, we can get direct access
         # to the live data we are interested in.
+
         print "MYORG01234567M endpoint A001 Rx power is "
                 . $v->service( 'MYORG01234567M' )->live_data->endpoint( 'A001' )->receive_power;
-	
+
+	create_service_alert( 'VERNet service MYORG01234567M link state degraded' )
+		unless ( $v->service( 'MYORG01234567M' )->live_data->endpoint( 'A001' )->link_ok );
 
 =head2 METHODS
 
